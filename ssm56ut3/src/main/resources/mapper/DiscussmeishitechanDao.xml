@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.DiscussmeishitechanDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.DiscussmeishitechanEntity" id="discussmeishitechanMap">
+        <result property="refid" column="refid"/>
+        <result property="userid" column="userid"/>
+        <result property="nickname" column="nickname"/>
+        <result property="content" column="content"/>
+        <result property="reply" column="reply"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.DiscussmeishitechanVO" >
+		SELECT * FROM discussmeishitechan  discussmeishitechan         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.DiscussmeishitechanVO" >
+		SELECT  discussmeishitechan.* FROM discussmeishitechan  discussmeishitechan
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.DiscussmeishitechanView" >
+
+		SELECT  discussmeishitechan.* FROM discussmeishitechan  discussmeishitechan 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.DiscussmeishitechanView" >
+		SELECT * FROM discussmeishitechan  discussmeishitechan <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+	
+</mapper>
